@@ -1,0 +1,314 @@
+:root {
+  --paper: #fbf4e8;
+  --paper-deep: #efe0c8;
+  --ink: #3e2419;
+  --muted: #7d604c;
+  --brown: #71431f;
+  --clay: #a45632;
+  --olive: #607245;
+  --cream: #fffaf1;
+  --line: rgba(94, 59, 34, 0.18);
+  --shadow: 0 18px 42px rgba(47, 26, 15, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Noto Serif TC", "Microsoft JhengHei", "PingFang TC", serif;
+  background:
+    radial-gradient(circle at top left, rgba(164, 86, 50, 0.18), transparent 30rem),
+    linear-gradient(135deg, #fffaf1 0%, var(--paper) 48%, #eadcc8 100%);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(1440px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 44px;
+}
+
+.topbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: end;
+  padding: 24px 0 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--olive);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+h1 {
+  margin: 0;
+  color: var(--brown);
+  font-size: clamp(2rem, 5vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: min(280px, 100%);
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 241, 0.84);
+}
+
+.search-box span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.search-box input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  color: var(--ink);
+  background: transparent;
+}
+
+#showAllBtn {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 0;
+  color: #fffaf1;
+  background: var(--brown);
+  cursor: pointer;
+}
+
+#showAllBtn:hover {
+  background: var(--clay);
+}
+
+.summary-band {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  margin: 18px 0 22px;
+  padding: 14px 0;
+  color: var(--muted);
+}
+
+.summary-band strong {
+  color: var(--clay);
+  font-size: 2.2rem;
+}
+
+.summary-band p {
+  margin: 0;
+  text-align: right;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.recipe-card {
+  min-width: 0;
+}
+
+.recipe-card.is-hidden {
+  display: none;
+}
+
+.flip-card {
+  width: 100%;
+  height: 360px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  perspective: 1200px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.card-inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.2, 0.65, 0.18, 1);
+  transform-style: preserve-3d;
+}
+
+.recipe-card.is-flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--cream);
+  backface-visibility: hidden;
+  box-shadow: var(--shadow);
+}
+
+.card-front {
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.card-front::after {
+  content: "";
+  position: absolute;
+  right: -42px;
+  bottom: -56px;
+  width: 150px;
+  height: 150px;
+  border: 1px solid rgba(96, 114, 69, 0.35);
+  border-radius: 50%;
+}
+
+.card-number {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  color: #fffaf1;
+  background: var(--brown);
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+.card-content {
+  display: grid;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.tag {
+  width: max-content;
+  padding: 5px 10px;
+  color: var(--olive);
+  border: 1px solid rgba(96, 114, 69, 0.35);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.recipe-title {
+  display: block;
+  color: var(--brown);
+  font-size: 1.85rem;
+  line-height: 1.2;
+  font-weight: 900;
+}
+
+.recipe-desc {
+  display: block;
+  color: #3f3028;
+  font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+  font-size: 1.03rem;
+  line-height: 1.8;
+}
+
+.flip-hint,
+.image-caption {
+  color: var(--muted);
+  font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+  font-size: 0.9rem;
+}
+
+.card-back {
+  padding: 0;
+  transform: rotateY(180deg);
+  background: #20140d;
+}
+
+.card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-caption {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  padding: 8px 10px;
+  color: #fffaf1;
+  background: rgba(62, 36, 25, 0.78);
+}
+
+@media (max-width: 1180px) {
+  .recipe-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .topbar {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    justify-content: stretch;
+  }
+
+  .search-box,
+  #showAllBtn {
+    flex: 1 1 220px;
+  }
+
+  .summary-band {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .summary-band p {
+    text-align: left;
+  }
+
+  .recipe-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .app-shell {
+    width: min(100% - 20px, 1440px);
+    padding-top: 14px;
+  }
+
+  .recipe-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flip-card {
+    height: 330px;
+  }
+}

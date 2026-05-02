@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>20 道 LE CREUSET 鑄鐵鍋料理</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="topbar" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">烤箱料理收藏</p>
+        <h1 id="page-title">20 道 LE CREUSET 鑄鐵鍋料理</h1>
+      </div>
+      <div class="controls" aria-label="料理瀏覽工具">
+        <label class="search-box">
+          <span>搜尋</span>
+          <input id="searchInput" type="search" placeholder="輸入料理或食材">
+        </label>
+        <button id="showAllBtn" type="button">全部翻回說明</button>
+      </div>
+    </section>
+
+    <section class="summary-band" aria-label="使用狀態">
+      <div>
+        <strong id="matchCount">20</strong>
+        <span>道料理</span>
+      </div>
+      <p>點選卡片可在料理說明與完整圖片之間翻面。</p>
+    </section>
+
+    <section id="recipeGrid" class="recipe-grid" aria-label="料理卡片列表"></section>
+  </main>
+
+  <template id="recipeCardTemplate">
+    <article class="recipe-card">
+      <button class="flip-card" type="button" aria-label="">
+        <span class="card-inner">
+          <span class="card-face card-front">
+            <span class="card-number"></span>
+            <span class="card-content">
+              <span class="tag">料理說明</span>
+              <span class="recipe-title"></span>
+              <span class="recipe-desc"></span>
+            </span>
+            <span class="flip-hint">點一下看圖片</span>
+          </span>
+          <span class="card-face card-back">
+            <img alt="">
+            <span class="image-caption"></span>
+          </span>
+        </span>
+      </button>
+    </article>
+  </template>
+
+  <script src="recipes.js"></script>
+</body>
+</html>
