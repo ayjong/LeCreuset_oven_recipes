@@ -147,6 +147,7 @@ h1 {
   border: 0;
   background: transparent;
   perspective: 1200px;
+  -webkit-perspective: 1200px;
   cursor: pointer;
   text-align: left;
 }
@@ -158,10 +159,12 @@ h1 {
   height: 100%;
   transition: transform 0.7s cubic-bezier(0.2, 0.65, 0.18, 1);
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
 .recipe-card.is-flipped .card-inner {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
 }
 
 .card-face {
@@ -172,13 +175,19 @@ h1 {
   border: 1px solid var(--line);
   background: var(--cream);
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   box-shadow: var(--shadow);
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
 .card-front {
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  transition: opacity 0.18s ease;
 }
 
 .card-front::after {
@@ -245,7 +254,12 @@ h1 {
 .card-back {
   padding: 0;
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
   background: #20140d;
+}
+
+.recipe-card.is-flipped .card-front {
+  opacity: 0;
 }
 
 .card-back img {
