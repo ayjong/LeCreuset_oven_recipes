@@ -269,13 +269,7 @@ h1 {
 }
 
 .image-caption {
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
-  padding: 8px 10px;
-  color: #fffaf1;
-  background: rgba(62, 36, 25, 0.78);
+  display: none;
 }
 
 @media (max-width: 1180px) {
