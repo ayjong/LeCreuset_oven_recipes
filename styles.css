@@ -244,8 +244,7 @@ h1 {
   line-height: 1.8;
 }
 
-.flip-hint,
-.image-caption {
+.flip-hint {
   color: var(--muted);
   font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
   font-size: 0.9rem;
@@ -266,10 +265,6 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.image-caption {
-  display: none;
 }
 
 @media (max-width: 1180px) {

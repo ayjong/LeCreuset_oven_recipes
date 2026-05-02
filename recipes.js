@@ -116,7 +116,6 @@ function renderRecipes() {
     const title = node.querySelector(".recipe-title");
     const desc = node.querySelector(".recipe-desc");
     const img = node.querySelector("img");
-    const caption = node.querySelector(".image-caption");
 
     card.dataset.search = `${recipe.title} ${recipe.desc}`.toLowerCase();
     number.textContent = String(index + 1).padStart(2, "0");
@@ -124,7 +123,6 @@ function renderRecipes() {
     desc.textContent = recipe.desc;
     img.src = recipe.image;
     img.alt = `${recipe.title} 圖片`;
-    caption.textContent = recipe.title;
     button.setAttribute("aria-label", `翻面查看 ${recipe.title} 的圖片`);
 
     button.addEventListener("click", () => {
